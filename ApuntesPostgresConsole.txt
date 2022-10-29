@@ -1,0 +1,126 @@
+# Postgres Resumen de informacion relevante 
+
+## Comandos de consola 
+
+**ENTRAR A LA CONSOLA DE POSTGRES**
+`psql -U postgres -W`
+
+**VER LOS COMANDOS \ DE POSTGRES**
+`\?`
+
+**LISTAR TODAS LAS BASES DE DATOS**
+`\l`
+
+**VER LAS TABLAS DE UNA BASE DE DATOS**
+`\dt`
+
+**CAMBIAR A OTRA BD**
+`\c nombre_BD`
+
+**DESCRIBIR UNA TABLA**
+`\d nombre_tabla`
+
+**VER TODOS LOS COMANDOS SQL**
+`\h`
+
+**VER COMO SE EJECTUA UN COMANDO SQL**
+`\h nombre_de_la_funcion`
+
+**CANCELAR TODO LO QUE HAY EN PANTALLA**
+`Ctrl + C`
+
+**VER LA VERSION DE POSTGRES INSTALADA, IMPORTANTE PONER EL ';'**
+`SELECT version();`
+
+**VOLVER A EJECUTAR LA FUNCION REALIADA ANTERIORMENTE**
+`\g`
+
+**INICIALIZAR EL CONTADOR DE TIEMPO PARA QUE LA CONSOLA TE DIGA EN CADA EJECUCION ¿CUANTO DEMORO EN EJECUTAR ESA FUNCION?**
+`\timing`
+
+**LIMPIAR PANTALLA DE LA CONSOLA PSQL**
+`Ctrl + L`
+
+
+
+
+## **Archivos Configuracion**
+
+* postgresql.conf
+* pg_hba.conf
+* pg_ident.conf
+
+**Muestra la ruta de nuestros archivos de configuracion**
+`SHOW config_file;`
+
+- **postgresql.conf**: Configuración general de postgres, múltiples opciones referentes a direcciones de conexión de entrada, memoria, cantidad de hilos de pocesamiento, replica, etc.
+
+- **pg_hba.conf**: Muestra los roles así como los tipos de acceso a la base de datos.
+
+- **pg_ident.conf**: Permite realizar el mapeo de usuarios. Permite definir roles a usuarios del sistema operativo donde se ejecuta postgres.
+
+## Comandos de SQL
+
+SELECT VERSION();
+
+\h -- ayuda
+\h comnado -- ayuda del comando especifico
+\l -- Listar las bases
+\c base de datos --moverse a una base de datos especifica
+\dt -- listar las tablas de la base actual
+\dn -- listar los esquemas de la base actual
+\dv -- listar las vistas
+\df -- listar las funciones
+\du -- listar los usuarios
+\g -- ejecutar ultimo comando 
+\s -- historial de comandos
+\l nombrearchivo --guardar lista de comandos
+\i nombre archivo -- ejecuta comandos guardados
+\e -- abrir editor 
+\ef -- editor de funciones
+\timming -- activar o desactivar el tiempo de respusta de las consultas
+\q cerra consola
+CREATE DATABASE base; -- crea base
+CREATE TABLE tabla (columnas); crea tabla
+INSERT INTO tabla(columna) VALUES('dato');
+SELECT * FROM tabla;
+UPDATE tabla SET cammpo = dato WHERE condicion;
+DELETE FROM tabla WHERE condicion;
+
+
+## Tipos de datos 
+
+**Principales:**
+
+	* Numéricos
+	* Monetarios
+	* texto
+	* Binarios
+	* Fecha / Hora
+	* Boolean
+
+**Especiales:**
+
+	* Geométricos
+	* Dirección de Red
+	* Texto tipo bit
+	* XML, JSON
+	* Arreglos
+
+[Mas informacion sobre tipos de datos ](https://todopostgresql.com/postgresql-data-types-los-tipos-de-datos-mas-utilizados/)
+
+
+## Jerarquia de Base de daatos 
+
+Toda jerarquía de base de datos se basa en los siguientes elementos:
+
+**Servidor de base de datos**: Computador que tiene un motor de base de datos instalado y en ejecución.
+
+**Motor de base de datos**: Software que provee un conjunto de servicios encargados de administrar una base de datos.
+
+**Base de datos**: Grupo de datos que pertenecen a un mismo contexto.
+
+**Esquemas de base de datos en PostgreSQ**L: Grupo de objetos de base de datos que guarda relación entre sí (tablas, funciones, relaciones, secuencias).
+
+**Tablas de base de datos:** Estructura que organiza los datos en filas y columnas formando una matriz.
+
